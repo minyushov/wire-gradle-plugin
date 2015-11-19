@@ -8,7 +8,7 @@ dependencies {
   compile gradleApi()
   compile localGroovy()
 
-  compile 'com.android.tools.build:gradle:1.4.0-beta6'
+  compile 'com.android.tools.build:gradle:1.5.0'
   compile 'com.github.square.wire:wire-compiler:d9e7d9d'
 }
 
