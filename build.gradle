@@ -9,14 +9,11 @@ dependencies {
   compile localGroovy()
 
   compile 'com.android.tools.build:gradle:1.5.0'
-  compile 'com.github.square.wire:wire-compiler:d9e7d9d'
+  compile 'com.squareup.wire:wire-compiler:2.0.1'
 }
 
 repositories {
   jcenter()
-  maven {
-    url "https://jitpack.io"
-  }
 }
 
 artifacts {
