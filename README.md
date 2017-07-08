@@ -1,9 +1,19 @@
 Wire Gradle Plugin
 ==================
 
-TODO
-
-
+Integration
+-------
+```groovy
+buildscript {
+    repositories {
+        maven { url "http://dl.bintray.com/minyushov/gradle" }
+    }
+    dependencies {
+        classpath "com.minyushov.gradle:wire:1.0.0"
+    }
+}
+apply plugin: 'com.squareup.wire'
+```
 
 License
 -------
