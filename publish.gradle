@@ -1,0 +1,71 @@
+apply plugin: 'maven-publish'
+
+afterEvaluate { project ->
+	Properties properties = new Properties()
+	properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+	project.archivesBaseName = BINTRAY_NAME
+	group = BINTRAY_GROUP
+	version = BINTRAY_VERSION
+
+	bintray {
+		user = properties.getProperty("bintray.user")
+		key = properties.getProperty("bintray.apikey")
+
+		configurations = ['archives']
+		dryRun = false
+
+		pkg {
+			repo = BINTRAY_REPO
+			name = BINTRAY_NAME
+			desc = BINTRAY_DESCRIPTION
+			websiteUrl = BINTRAY_WEBSITE_URL
+			vcsUrl = BINTRAY_VCS_URL
+			issueTrackerUrl = BINTRAY_ISSUE_TRACKER
+			licenses = [LICENSE]
+		}
+	}
+
+	install {
+		repositories.mavenInstaller {
+			pom.project {
+				packaging PACKAGING
+				groupId BINTRAY_GROUP
+				artifactId BINTRAY_NAME
+				version BINTRAY_VERSION
+
+				name BINTRAY_NAME
+				url BINTRAY_VCS_URL
+
+				licenses {
+					license {
+						name LICENSE_NAME
+						url LICENSE_URL
+						distribution LICENSE_DISTRIBUTION
+					}
+				}
+				developers {
+					developer {
+						id DEVELOPER_ID
+						name DEVELOPER_NAME
+					}
+				}
+				scm {
+					connection SCM_URL_CONNECTION
+					url SCM_URL
+				}
+			}
+		}
+	}
+
+	publishing {
+		publications {
+			mavenJava(MavenPublication) {
+				groupId BINTRAY_GROUP
+				artifactId BINTRAY_NAME
+				version BINTRAY_VERSION
+				from components.java
+			}
+		}
+	}
+}
