@@ -1,10 +1,22 @@
-plugins {
-	id "com.github.dcendents.android-maven" version "2.0"
-	id "com.jfrog.bintray" version "1.7.3"
+buildscript {
+	repositories {
+		jcenter()
+		google()
+		maven { url 'https://dl.bintray.com/minyushov/gradle' }
+	}
+
+	dependencies {
+		classpath "com.minyushov.gradle:bintray-simple:0.0.1"
+	}
 }
 
 apply plugin: 'groovy'
-apply from: 'publish.gradle'
+apply plugin: 'bintray-simple'
+
+repositories {
+	jcenter()
+	google()
+}
 
 dependencies {
 	compile gradleApi()
@@ -15,6 +27,14 @@ dependencies {
 	compile 'com.squareup.wire:wire-compiler:2.2.0'
 }
 
-repositories {
-	jcenter()
+bintrayUpload {
+	dryRun = false
+	repo = "gradle"
+	groupId = "com.minyushov.gradle"
+	artifactId = "wire"
+	version = "1.0.1"
+	vcsUrl = "http://github.com/minyushov/wire-gradle-plugin/"
+	license = "Apache-2.0"
+	sources = false
+	docs = false
 }
