@@ -9,9 +9,10 @@ buildscript {
         maven { url "http://dl.bintray.com/minyushov/gradle" }
     }
     dependencies {
-        classpath "com.minyushov.gradle:wire:1.0.0"
+        classpath "com.minyushov.gradle:wire:1.0.1"
     }
 }
+
 apply plugin: 'com.squareup.wire'
 ```
 
