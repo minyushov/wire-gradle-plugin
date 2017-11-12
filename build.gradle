@@ -10,10 +10,8 @@ dependencies {
 	compile gradleApi()
 	compile localGroovy()
 
-	compile 'com.android.tools.build:gradle:2.3.3'
-	compile('com.squareup:javapoet:1.9.0') {
-		force = true
-	}
+	compile 'com.android.tools.build:gradle:3.0.0'
+	compile 'com.squareup:javapoet:1.9.0'
 	compile 'com.squareup.wire:wire-compiler:2.2.0'
 }
 
