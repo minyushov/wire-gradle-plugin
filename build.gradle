@@ -6,12 +6,12 @@ buildscript {
 	}
 
 	dependencies {
-		classpath "com.minyushov.gradle:bintray-simple:0.0.1"
+		classpath "com.minyushov.gradle:bintray:1.0.0"
 	}
 }
 
 apply plugin: 'groovy'
-apply plugin: 'bintray-simple'
+apply plugin: 'com.minyushov.bintray'
 
 repositories {
 	jcenter()
@@ -19,12 +19,12 @@ repositories {
 }
 
 dependencies {
-	compile gradleApi()
-	compile localGroovy()
+	implementation gradleApi()
+	implementation localGroovy()
 
-	compile 'com.android.tools.build:gradle:3.0.0'
-	compile 'com.squareup:javapoet:1.9.0'
-	compile 'com.squareup.wire:wire-compiler:2.2.0'
+	implementation 'com.android.tools.build:gradle:3.0.1'
+	implementation 'com.squareup:javapoet:1.9.0'
+	implementation 'com.squareup.wire:wire-compiler:2.2.0'
 }
 
 bintrayUpload {
