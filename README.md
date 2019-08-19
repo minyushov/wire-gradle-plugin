@@ -1,6 +1,10 @@
 Wire Gradle Plugin
 ==================
 
+DEPRECATED
+-------
+Please use Square's [wire-gradle-plugin](https://github.com/square/wire/tree/master/wire-gradle-plugin)
+
 Integration
 -------
 ```groovy
